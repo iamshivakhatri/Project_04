@@ -1,0 +1,52 @@
+.app {
+    background: url('./assets/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-bottom: 50px;
+}
+
+.option__box {
+    position: fixed; /* Fixed position */
+    top: 400px; /* Adjust this value to control the vertical position */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-80%); /* Center horizontally */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #f0f0f034; /* Background color of the options box */
+    padding: 10px; /* Padding around the options box */
+    width: 600px; /* Fixed width for the options box */
+    height: 300px; /* Fixed height for the options box */
+    border: 1px solid #ddd; /* Border around the options box */
+    border-radius: 10px; /* Rounded corners */
+}
+
+
+.option__image {
+    width: 100px; /* Fixed width for each image */
+    height: 100px; /* Fixed height for each image */
+    cursor: pointer;
+    border: 1px solid #ccc; /* Border around each image */
+    border-radius: 10px; /* Rounded corners for images */
+    transition: transform 0.2s; /* Smooth image scaling on hover */
+}
+
+.option__image:hover {
+    transform: scale(1.1); /* Scale up the image on hover */
+}
+
+.button__box {
+    display: flex;
+    
+    align-items: flex-start; /* Align items to the top */
+}
+
+.summary__box{
+    margin-top: 100px;
+}
