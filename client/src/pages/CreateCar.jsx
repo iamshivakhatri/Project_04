@@ -19,18 +19,38 @@ const CreateCar = () => {
   const handleAspectButtonClick = (aspect) => {
     if (aspect === "color") {
       setColorOptionsVisible(!colorOptionsVisible);
+      setWheelOptionsVisible(false);
+      setInteriorOptionsVisible(false);
+      setExteriorOptionsVisible(false);
+      setRoofOptionsVisible(false);
     }
     if (aspect === "wheels") {
       setWheelOptionsVisible(!wheelOptionsVisible);
+      setColorOptionsVisible(false);
+      setInteriorOptionsVisible(false);
+      setExteriorOptionsVisible(false);
+      setRoofOptionsVisible(false);
     }
     if (aspect === "interior") {
       setInteriorOptionsVisible(!interiorOptionsVisible);
+      setWheelOptionsVisible(false);
+      setColorOptionsVisible(false);
+      setExteriorOptionsVisible(false);
+      setRoofOptionsVisible(false);
     }
     if (aspect === "exterior") {
       setExteriorOptionsVisible(!exteriorOptionsVisible);
+      setWheelOptionsVisible(false);
+      setInteriorOptionsVisible(false);
+      setColorOptionsVisible(false);
+      setRoofOptionsVisible(false);
     }
     if (aspect === "roof") {
       setRoofOptionsVisible(!roofOptionsVisible);
+      setWheelOptionsVisible(false);
+      setInteriorOptionsVisible(false);
+      setExteriorOptionsVisible(false);
+      setColorOptionsVisible(false);    
     }
   };
 
@@ -109,7 +129,7 @@ const CreateCar = () => {
       setInterior(optionName);
       setPrice(temp + optionPrice); // Increment price for the selected interior
     }
-    setInteriorOptionsVisible(false);
+   
   };
 
   const getInteriorPrice = (interior) => {
@@ -137,7 +157,7 @@ const CreateCar = () => {
       setExterior(optionName);
       setPrice(temp + optionPrice); // Increment price for the selected exterior
     }
-    setExteriorOptionsVisible(false);
+
   };
 
   const getExteriorPrice = (exterior) => {
@@ -149,7 +169,44 @@ const CreateCar = () => {
     return exteriorPrices[exterior] || 0; // Return the price or 0 if not found
   };
 
+  /***This is for roof  */
+
+  const handleRoofOptionClick = (optionName, optionPrice) => {
+    let temp;
+    if (optionName !== roof) {
+      // Cancel the price of the previous roof
+      console.log(
+        "This is the price of the roof: and roof " +
+          getRoofPrice(roof) +
+          " " +
+          roof
+      );
+      temp = price - getRoofPrice(roof);
+      setRoof(optionName);
+      setPrice(temp + optionPrice); // Increment price for the selected roof
+    }
+    
+  };
+
+  const getRoofPrice = (roof) => {
+    // Define the price of each type of roof
+    const roofPrices = {
+      "Panoramic Glass Roof": 1000,
+      Sunroof: 800,
+    };
+    return roofPrices[roof] || 0; // Return the price or 0 if not found
+  };
+
   const createcar = () => {
+
+    const car = {
+        color: color,
+        wheels: wheels,
+        interior: interior,
+        exterior: exterior,
+        roof: roof,
+        price: price
+    }
     window.location = "/customcars";
   };
 
@@ -330,14 +387,22 @@ const CreateCar = () => {
               <div className="option__box">
                 <img
                   src="/black.jpg"
-                  alt="Panaromic Glass Roof"
-                  onClick={() => setRoof("Panaromic Glass Roof")}
+                  alt="Panoramic Glass Roof"
+                  onClick={() =>
+                    handleRoofOptionClick(
+                      "Panoramic Glass Roof",
+                      getRoofPrice("Panoramic Glass Roof")
+                    )
+                  }
                   style={{ cursor: "pointer" }}
                 />
+
                 <img
                   src="/silver.jpg"
                   alt="Sunroof"
-                  onClick={() => setRoof("Sunroof")}
+                  onClick={() =>
+                    handleRoofOptionClick("Sunroof", getRoofPrice("Sunroof"))
+                  }
                   style={{ cursor: "pointer" }}
                 />
               </div>

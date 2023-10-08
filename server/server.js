@@ -2,6 +2,8 @@ import express from 'express'
 import path from 'path'
 import favicon from 'serve-favicon'
 import dotenv from 'dotenv'
+import carsRouter from './routes/customcar.js'
+
 
 // import the router from your routes file
 
@@ -12,7 +14,15 @@ const PORT = process.env.PORT || 3000
 
 const app = express()
 
+
 app.use(express.json())
+
+
+// use the router from your routes file
+app.use('/viewcars', carsRouter)
+
+
+
 
 if (process.env.NODE_ENV === 'development') {
     app.use(favicon(path.resolve('../', 'client', 'public', 'lightning.png')))
@@ -30,6 +40,7 @@ if (process.env.NODE_ENV === 'production') {
         res.sendFile(path.resolve('public', 'index.html'))
     )
 }
+
 
 app.listen(PORT, () => {
     console.log(`server listening on http://localhost:${PORT}`)
