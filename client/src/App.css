@@ -13,9 +13,9 @@
 
 .option__box {
     position: fixed; /* Fixed position */
-    top: 400px; /* Adjust this value to control the vertical position */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-80%); /* Center horizontally */
+    top: 40%; /* Adjust this value to control the vertical position */
+    left: 30%; /* Center horizontally */
+  /* Center horizontally */
     display: flex;
     justify-content: space-around;
     align-items: center;

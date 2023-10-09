@@ -8,6 +8,7 @@ const createCustomCarTable = async () => {
 
     CREATE TABLE IF NOT EXISTS customcar (
       id SERIAL PRIMARY KEY,
+      name VARCHAR(255) NOT NULL,
       color VARCHAR(255) NOT NULL,
       wheels VARCHAR(255) NOT NULL,
       interior VARCHAR(255) NOT NULL,
@@ -32,10 +33,11 @@ const seedCustomCarTable = async () => {
   customcar.forEach((car) => {
 
     const insertQuery = {
-      text: 'INSERT INTO customcar (color, wheels, interior, exterior, roof, price) VALUES ($1, $2, $3, $4, $5, $6)'
+      text: 'INSERT INTO customcar (name, color, wheels, interior, exterior, roof, price) VALUES ($1, $2, $3, $4, $5, $6, $7)'
     }
 
     const values = [
+      car.name,
       car.color,
       car.wheels,
       car.interior,

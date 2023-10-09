@@ -9,6 +9,7 @@ const CreateCar = () => {
   const [exterior, setExterior] = useState("");
   const [roof, setRoof] = useState("");
   const [price, setPrice] = useState(60000);
+  const [carName, setCarName] = useState('');
 
   const [colorOptionsVisible, setColorOptionsVisible] = useState(false);
   const [wheelOptionsVisible, setWheelOptionsVisible] = useState(false);
@@ -200,6 +201,7 @@ const CreateCar = () => {
   const createcar = (event) => {
 
     const car = {
+      name: carName? carName: "Default",
       color: color? color : "Default",
       wheels:  wheels? wheels : "Default",
       interior: interior? interior : "Default",
@@ -433,6 +435,14 @@ const CreateCar = () => {
         <p>Price: {price} </p>
       </div>
 
+      
+      
+      <input   style = {{color: "white", width: "200px"}}
+            type="text"
+            placeholder="Enter car name"
+            value={carName}
+            onChange={(e) => (setCarName(e.target.value))}
+          />
       <button onClick={createcar}>Create Car</button>
     </div>
   );

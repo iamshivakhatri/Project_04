@@ -9,6 +9,7 @@ const CarDetails = ({ data }) => {
 
   const [car, setCar] = useState({
     id: 0,
+    name : "",
     color: "",
     wheels: "",
     interior: "",
@@ -53,8 +54,9 @@ const CarDetails = ({ data }) => {
           {/* <img id="image" src={car.image} alt={car.color} /> */}
         </div>
         <div className="car-details">
-          <h2 id="color">{car.color}</h2>
+          <h2 id="color">{car.name}</h2>
            {console.log("This is the car",car.color)  }
+          <p id="color">{"Color: "+car.color}</p>
           <p id="wheels">{'Wheels: ' + car.wheels}</p>
           <p id="interior">{'Interior: ' + car.interior}</p>
           <p id="exterior">{'Exterior: ' + car.exterior}</p>

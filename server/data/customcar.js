@@ -2,6 +2,7 @@ const customcar = [
     
         { 
             "id": 1,
+            "name": "Model 1",
             "color": "Red",
             "wheels": "Aero Wheels",
             "interior": "Black Premium Interior",
@@ -10,6 +11,7 @@ const customcar = [
             "price": 15000
         },
         {   "id": 2,
+            "name": "Model 2",
             "color": "Blue",
             "wheels": "Sport Wheels",
             "interior": "White Premium Interior",
@@ -19,6 +21,7 @@ const customcar = [
         },
         {
             "id": 3,
+            "name": "Model 3",
             "color": "White",
             "wheels": "Uberturbine Wheels",
             "interior": "Wood Decor",
@@ -28,6 +31,7 @@ const customcar = [
         },
         {
             "id": 4,
+            "name": "Model 4",  
             "color": "Black",
             "wheels": "Sport Wheels",
             "interior": "Black Premium Interior",

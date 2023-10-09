@@ -14,16 +14,17 @@ const car = ({car}) => {
     <article className="car">
 
       <div className="car__container">
+        <h2>{car.name}</h2>
 
       </div>
 
       <div className="car__info">
-      <p>{car.color}</p>
-        <p>{car.wheels}</p>
-        <p>{car.interior}</p> 
-        <p>{car.exterior}</p>
-        <p>{car.roof}</p>
-        <p>{car.price}</p>
+      <p> Color : {car.color}</p>
+        <p> Wheel : {car.wheels}</p>
+        <p> Interior : {car.interior}</p> 
+        <p> Exterior : { car.exterior}</p>
+        <p> Roof : {car.roof}</p>
+        <p> Price : {car.price}</p>
 
       </div>
 

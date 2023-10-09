@@ -6,6 +6,7 @@ const EditCar = () => {
     const { id } = useParams();
     const [car, setCar] = useState({
         id: 0,
+        name : '',
         color: '',
         wheels: '',
         interior: '',
@@ -463,7 +464,8 @@ const EditCar = () => {
 
 
         <div className="summary__box">
-        <h2>Summary of Choices</h2>
+       
+        <h2 id="color">{car.name}</h2>
         <p>Exterior Color: {color ? color : "Default"}</p>
         <p>Wheel Design: {wheels ? wheels : "Default"}</p>
         <p>Interior: {interior ? interior : "Default"}</p>
