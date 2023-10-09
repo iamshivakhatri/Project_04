@@ -197,18 +197,30 @@ const CreateCar = () => {
     return roofPrices[roof] || 0; // Return the price or 0 if not found
   };
 
-  const createcar = () => {
+  const createcar = (event) => {
 
     const car = {
-        color: color,
-        wheels: wheels,
-        interior: interior,
-        exterior: exterior,
-        roof: roof,
-        price: price
+      color: color? color : "Default",
+      wheels:  wheels? wheels : "Default",
+      interior: interior? interior : "Default",
+      exterior: exterior? exterior : "Default",
+      roof: roof ? roof : "Default",
+      price: price? price : "Default",
     }
+    const options = {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(car),
+
+  }
+
+ fetch('http://localhost:3000/viewcars', options)
+
     window.location = "/customcars";
   };
+  
 
   return (
     <div>
@@ -417,7 +429,7 @@ const CreateCar = () => {
         <p>Wheel Design: {wheels ? wheels : "Default"}</p>
         <p>Interior: {interior ? interior : "Default"}</p>
         <p>Exterior Customization: {exterior ? exterior : "Default"}</p>
-        <p>Roof Style: {roof ? exterior : "Default"}</p>
+        <p>Roof Style: {roof ? roof : "Default"}</p>
         <p>Price: {price} </p>
       </div>
 

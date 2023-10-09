@@ -39,7 +39,7 @@ const CarDetails = ({ data }) => {
             method: 'DELETE',
         }
         fetch(`http://localhost:3000/viewcars/${id}`, options)
-        window.location = '/'
+        window.location = '/customcars'
     } catch (error) {
       console.log(error);
     }
