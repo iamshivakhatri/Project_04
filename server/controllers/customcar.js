@@ -38,7 +38,7 @@ const createCar = async (req, res) => {
     }
 }
 
-const updateGift = async (req, res) => {
+const updateCar = async (req, res) => {
     try {
         const {id} = req.params
         const {color, wheels, interior, exterior, roof, price} = req.body
@@ -63,4 +63,4 @@ const deleteCar = async (req, res) => {
     }
 }
 
-export default {getCars, getCarById, createCar, updateGift, deleteCar}
+export default {getCars, getCarById, createCar, updateCar, deleteCar}

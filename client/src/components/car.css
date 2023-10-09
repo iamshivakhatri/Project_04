@@ -1,0 +1,33 @@
+.car {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    background-color: #f9f9f92e;
+    width: 1000px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .car__container{
+    flex: 1;
+  }
+  
+  .car p {
+    margin: 0;
+    padding: 5px 0;
+  }
+  
+  .car strong {
+    font-weight: bold;
+  }
+
+  .car__info{
+    flex:1;
+    
+    
+    display: flex;
+    justify-content: space-between;
+
+  }
+  
