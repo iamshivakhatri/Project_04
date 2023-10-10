@@ -1,6 +1,23 @@
 import React, { useState } from "react";
 import "../App.css";
 import OptionBox from "../components/OptionBox";
+import aerowheels from "../assets/aerowheels.png"
+import sportwheels from "../assets/sportswheel.jpeg"
+import uberturbinewheels from "../assets/uberturbine.webp"
+import blackpremiuminterior from "../assets/blackpremium.jpeg"
+import whitepremiuminterior from "../assets/whitepremium.webp"
+import wooddecor from "../assets/wooddecor.jpeg"
+import custompaint from "../assets/custompaint.jpeg"
+import bodykit from "../assets/bodykit.png"
+import panoromicglassroof from "../assets/panaromic.jpeg"
+import sunroof from "../assets/sunroof.jpeg"
+import red from "../assets/red.png"
+import blue from "../assets/blue.jpeg"
+import white from "../assets/white.png"
+import black from "../assets/black.jpeg"
+import silver from "../assets/silver.png"
+
+
 
 const CreateCar = () => {
   const [color, setColor] = useState("");
@@ -10,6 +27,9 @@ const CreateCar = () => {
   const [roof, setRoof] = useState("");
   const [price, setPrice] = useState(60000);
   const [carName, setCarName] = useState('');
+
+  const [optionVisible, setOptionVisible] = useState(false);
+  const [optionContent, setOptionContent] = useState([]);
 
   const [colorOptionsVisible, setColorOptionsVisible] = useState(false);
   const [wheelOptionsVisible, setWheelOptionsVisible] = useState(false);
@@ -222,45 +242,146 @@ const CreateCar = () => {
 
     window.location = "/customcars";
   };
+
+  const handleButtonClick = (buttonType) => {
+    // Define the content for each button type here
+    let content = [];
+
+    if (buttonType === 'color') {
+      content = [
+        // Define color options here
+        { label: 'Red', value: 500 },
+        { label: 'Blue', value: 600 },
+        { label: 'White', value: 700 },
+        { label: 'Black', value: 800 },
+        { label: 'Silver', value: 900 },
+      ];
+    } else if (buttonType === 'wheels') {
+      content = [
+        // Define wheel options here
+        { label: 'Aero Wheels', value: 100 },
+        { label: 'Sport Wheels', value: 200 },
+        // Add more options as needed
+      ];
+    } else if (buttonType === 'interior') {
+      content = [
+        // Define interior options here
+        { label: 'Black Premium Interior', value: 300 },
+        { label: 'White Premium Interior', value: 400 },
+        { label: 'Wood Decor', value: 500 },
+        // Add more options as needed
+      ];
+    } else if (buttonType === 'exterior') {
+      content = [
+        // Define exterior options here
+        { label: 'Custom Paint', value: 600 },
+        { label: 'Body Kit', value: 700 },
+        // Add more options as needed
+      ];
+    } else if (buttonType === 'roof') {
+      content = [
+        // Define roof options here
+        { label: 'Panoramic Glass Roof', value: 800 },
+        { label: 'Sunroof', value: 900 },
+        // Add more options as needed
+      ];
+    }
+
+
+    // Update the state to show the option box and set its content
+    setOptionContent(content);
+    setOptionVisible(true);
+  }
   
 
   return (
     <div>
-      <h1>Customize Your Car</h1>
+
       <div className="button__box">
         <div>
           <button onClick={() => handleAspectButtonClick("color")}>
             Choose Color
           </button>
-          {colorOptionsVisible && (
+         
+        </div>
+
+        <div>
+          <button onClick={() => handleAspectButtonClick("wheels")}>
+            Choose Wheels
+          </button>
+          
+        </div>
+
+
+        <div>
+          <button onClick={() => handleAspectButtonClick("interior")}>
+            Choose Interior
+          </button>
+        </div>
+        <div>
+          <button onClick={() => handleAspectButtonClick("exterior")}>
+            Choose Exterior Customization
+          </button>
+         
+        </div>
+        <div>
+          <button onClick={() => handleAspectButtonClick("roof")}>
+            Choose Roof Style
+          </button>
+       
+        </div>
+
+      </div>
+      
+    <div className="bottom__box">  
+      <div className="summary__box">
+        <h2>Summary of Choices</h2>
+        <p>Exterior Color: {color ? color : "Default"}</p>
+        <p>Wheel Design: {wheels ? wheels : "Default"}</p>
+        <p>Interior: {interior ? interior : "Default"}</p>
+        <p>Exterior Customization: {exterior ? exterior : "Default"}</p>
+        <p>Roof Style: {roof ? roof : "Default"}</p>
+        <p>Price: {price} </p>
+        <input   style = {{color: "white", width: "200px"}}
+            type="text"
+            placeholder="Enter car name"
+            value={carName}
+            onChange={(e) => (setCarName(e.target.value))}
+          />
+
+
+      </div>
+
+      {colorOptionsVisible && (
             <>
               <div className="option__box">
+            
                 <img
-                  src="/red.jpg"
+                  src= {red}
                   alt="Red Color"
                   onClick={() => handleColorOptionClick("Red", 500)}
                   style={{ cursor: "pointer" }}
                 />
                 <img
-                  src="/blue.jpg"
+                  src= {blue}
                   alt="Blue Color"
                   onClick={() => handleColorOptionClick("Blue", 600)}
                   style={{ cursor: "pointer" }}
                 />
                 <img
-                  src="/white.jpg"
+                  src={white}
                   alt="White Color"
                   onClick={() => handleColorOptionClick("White", 700)}
                   style={{ cursor: "pointer" }}
                 />
                 <img
-                  src="/black.jpg"
+                  src= {black}
                   alt="Black Color"
                   onClick={() => handleColorOptionClick("Black", 800)}
                   style={{ cursor: "pointer" }}
                 />
                 <img
-                  src="/silver.jpg"
+                  src= {silver}
                   alt="Silver Color"
                   onClick={() => handleColorOptionClick("Silver", 900)}
                   style={{ cursor: "pointer" }}
@@ -268,17 +389,12 @@ const CreateCar = () => {
               </div>
             </>
           )}
-        </div>
 
-        <div>
-          <button onClick={() => handleAspectButtonClick("wheels")}>
-            Choose Wheels
-          </button>
-          {wheelOptionsVisible && (
+      {wheelOptionsVisible && (
             <>
               <div className="option__box">
                 <img
-                  src="/white.jpg"
+                  src= {aerowheels}
                   alt="Aero Wheels"
                   onClick={() =>
                     handleWheelOptionClick(
@@ -290,7 +406,7 @@ const CreateCar = () => {
                 />
 
                 <img
-                  src="/black.jpg"
+                  src= {sportwheels}
                   alt="Sport Wheels"
                   onClick={() =>
                     handleWheelOptionClick(
@@ -302,7 +418,7 @@ const CreateCar = () => {
                 />
 
                 <img
-                  src="/silver.jpg"
+                  src= {uberturbinewheels}
                   alt="Uberturbine Wheels"
                   onClick={() =>
                     handleWheelOptionClick(
@@ -315,15 +431,11 @@ const CreateCar = () => {
               </div>
             </>
           )}
-        </div>
-        <div>
-          <button onClick={() => handleAspectButtonClick("interior")}>
-            Choose Interior
-          </button>
-          {interiorOptionsVisible && (
+
+{interiorOptionsVisible && (
             <div className="option__box">
               <img
-                src="/white.jpg"
+                src= {blackpremiuminterior}
                 alt="Black Premium Interior"
                 onClick={() =>
                   handleInteriorOptionClick(
@@ -335,7 +447,7 @@ const CreateCar = () => {
               />
 
               <img
-                src="/black.jpg"
+                src= {whitepremiuminterior}
                 alt="White Premium Interior"
                 onClick={() =>
                   handleInteriorOptionClick(
@@ -347,7 +459,7 @@ const CreateCar = () => {
               />
 
               <img
-                src="/silver.jpg"
+                src= {wooddecor}
                 alt="Wood Decor"
                 onClick={() =>
                   handleInteriorOptionClick(
@@ -359,15 +471,12 @@ const CreateCar = () => {
               />
             </div>
           )}
-        </div>
-        <div>
-          <button onClick={() => handleAspectButtonClick("exterior")}>
-            Choose Exterior Customization
-          </button>
-          {exteriorOptionsVisible && (
+
+
+{exteriorOptionsVisible && (
             <div className="option__box">
               <img
-                src="/black.jpg"
+                src= {custompaint}
                 alt="Custom Paint"
                 onClick={() =>
                   handleExteriorOptionClick(
@@ -379,7 +488,7 @@ const CreateCar = () => {
               />
 
               <img
-                src="/silver.jpg"
+                src= {bodykit}
                 alt="Body Kit"
                 onClick={() =>
                   handleExteriorOptionClick(
@@ -391,16 +500,12 @@ const CreateCar = () => {
               />
             </div>
           )}
-        </div>
-        <div>
-          <button onClick={() => handleAspectButtonClick("roof")}>
-            Choose Roof Style
-          </button>
-          {roofOptionsVisible && (
+
+{roofOptionsVisible && (
             <div>
               <div className="option__box">
                 <img
-                  src="/black.jpg"
+                  src= {panoromicglassroof}
                   alt="Panoramic Glass Roof"
                   onClick={() =>
                     handleRoofOptionClick(
@@ -412,7 +517,7 @@ const CreateCar = () => {
                 />
 
                 <img
-                  src="/silver.jpg"
+                  src= {sunroof}
                   alt="Sunroof"
                   onClick={() =>
                     handleRoofOptionClick("Sunroof", getRoofPrice("Sunroof"))
@@ -422,27 +527,13 @@ const CreateCar = () => {
               </div>
             </div>
           )}
-        </div>
-      </div>
 
-      <div className="summary__box">
-        <h2>Summary of Choices</h2>
-        <p>Exterior Color: {color ? color : "Default"}</p>
-        <p>Wheel Design: {wheels ? wheels : "Default"}</p>
-        <p>Interior: {interior ? interior : "Default"}</p>
-        <p>Exterior Customization: {exterior ? exterior : "Default"}</p>
-        <p>Roof Style: {roof ? roof : "Default"}</p>
-        <p>Price: {price} </p>
-      </div>
+
+    </div>
 
       
       
-      <input   style = {{color: "white", width: "200px"}}
-            type="text"
-            placeholder="Enter car name"
-            value={carName}
-            onChange={(e) => (setCarName(e.target.value))}
-          />
+      
       <button onClick={createcar}>Create Car</button>
     </div>
   );

@@ -1,6 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import "./EditCar.css"
+import aerowheels from "../assets/aerowheels.png"
+import sportwheels from "../assets/sportswheel.jpeg"
+import uberturbinewheels from "../assets/uberturbine.webp"
+import blackpremiuminterior from "../assets/blackpremium.jpeg"
+import whitepremiuminterior from "../assets/whitepremium.webp"
+import wooddecor from "../assets/wooddecor.jpeg"
+import custompaint from "../assets/custompaint.jpeg"
+import bodykit from "../assets/bodykit.png"
+import panoromicglassroof from "../assets/panaromic.jpeg"
+import sunroof from "../assets/sunroof.jpeg"
+import red from "../assets/red.png"
+import blue from "../assets/blue.jpeg"
+import white from "../assets/white.png"
+import black from "../assets/black.jpeg"
+import silver from "../assets/silver.png"
 
 const EditCar = () => {
     const { id } = useParams();
@@ -268,35 +283,75 @@ const EditCar = () => {
           <button onClick={() => handleAspectButtonClick("color")}>
             Choose Color
           </button>
-          {colorOptionsVisible && (
+          
+        </div>
+
+        <div>
+          <button onClick={() => handleAspectButtonClick("wheels")}>
+            Choose Wheels
+          </button>
+          
+        </div>
+        <div>
+          <button onClick={() => handleAspectButtonClick("interior")}>
+            Choose Interior
+          </button>
+         
+        </div>
+        <div>
+          <button onClick={() => handleAspectButtonClick("exterior")}>
+            Choose Exterior Customization
+          </button>
+          
+        </div>
+        <div>
+          <button onClick={() => handleAspectButtonClick("roof")}>
+            Choose Roof Style
+          </button>
+          
+        </div>
+      </div>
+
+
+      <div className="bottom__box"> 
+        <div className="summary__box">
+        <h2>Summary of Choices</h2>
+        <p>Exterior Color: {color ? color : "Default"}</p>
+        <p>Wheel Design: {wheels ? wheels : "Default"}</p>
+        <p>Interior: {interior ? interior : "Default"}</p>
+        <p>Exterior Customization: {exterior ? exterior : "Default"}</p>
+        <p>Roof Style: {roof ? roof : "Default"}</p>
+        <p>Price: {price} </p>
+      </div>
+      {colorOptionsVisible && (
             <>
               <div className="option__box">
                 <img
-                  src="/red.jpg"
+                  src= {red}
                   alt="Red Color"
                   onClick={() => handleColorOptionClick("Red", 500)}
                   style={{ cursor: "pointer" }}
                 />
                 <img
-                  src="/blue.jpg"
+                  src= {blue}
                   alt="Blue Color"
                   onClick={() => handleColorOptionClick("Blue", 600)}
                   style={{ cursor: "pointer" }}
                 />
                 <img
-                  src="/white.jpg"
+                  src= {white}
                   alt="White Color"
                   onClick={() => handleColorOptionClick("White", 700)}
                   style={{ cursor: "pointer" }}
                 />
                 <img
-                  src="/black.jpg"
+                  src= {black}
                   alt="Black Color"
                   onClick={() => handleColorOptionClick("Black", 800)}
                   style={{ cursor: "pointer" }}
                 />
                 <img
-                  src="/silver.jpg"
+                  src= {silver}
                   alt="Silver Color"
                   onClick={() => handleColorOptionClick("Silver", 900)}
                   style={{ cursor: "pointer" }}
@@ -304,17 +359,12 @@ const EditCar = () => {
               </div>
             </>
           )}
-        </div>
 
-        <div>
-          <button onClick={() => handleAspectButtonClick("wheels")}>
-            Choose Wheels
-          </button>
-          {wheelOptionsVisible && (
+      {wheelOptionsVisible && (
             <>
               <div className="option__box">
                 <img
-                  src="/white.jpg"
+                  src= {aerowheels}
                   alt="Aero Wheels"
                   onClick={() =>
                     handleWheelOptionClick(
@@ -326,7 +376,7 @@ const EditCar = () => {
                 />
 
                 <img
-                  src="/black.jpg"
+                  src= {sportwheels}
                   alt="Sport Wheels"
                   onClick={() =>
                     handleWheelOptionClick(
@@ -338,7 +388,7 @@ const EditCar = () => {
                 />
 
                 <img
-                  src="/silver.jpg"
+                  src= {uberturbinewheels}
                   alt="Uberturbine Wheels"
                   onClick={() =>
                     handleWheelOptionClick(
@@ -351,15 +401,11 @@ const EditCar = () => {
               </div>
             </>
           )}
-        </div>
-        <div>
-          <button onClick={() => handleAspectButtonClick("interior")}>
-            Choose Interior
-          </button>
-          {interiorOptionsVisible && (
+
+      {interiorOptionsVisible && (
             <div className="option__box">
               <img
-                src="/white.jpg"
+                src= {blackpremiuminterior}
                 alt="Black Premium Interior"
                 onClick={() =>
                   handleInteriorOptionClick(
@@ -371,7 +417,7 @@ const EditCar = () => {
               />
 
               <img
-                src="/black.jpg"
+                src= {whitepremiuminterior}
                 alt="White Premium Interior"
                 onClick={() =>
                   handleInteriorOptionClick(
@@ -383,7 +429,7 @@ const EditCar = () => {
               />
 
               <img
-                src="/silver.jpg"
+                src= {wooddecor}
                 alt="Wood Decor"
                 onClick={() =>
                   handleInteriorOptionClick(
@@ -395,15 +441,12 @@ const EditCar = () => {
               />
             </div>
           )}
-        </div>
-        <div>
-          <button onClick={() => handleAspectButtonClick("exterior")}>
-            Choose Exterior Customization
-          </button>
-          {exteriorOptionsVisible && (
+
+
+      {exteriorOptionsVisible && (
             <div className="option__box">
               <img
-                src="/black.jpg"
+                src= {custompaint}
                 alt="Custom Paint"
                 onClick={() =>
                   handleExteriorOptionClick(
@@ -415,7 +458,7 @@ const EditCar = () => {
               />
 
               <img
-                src="/silver.jpg"
+                src= {bodykit}
                 alt="Body Kit"
                 onClick={() =>
                   handleExteriorOptionClick(
@@ -427,16 +470,12 @@ const EditCar = () => {
               />
             </div>
           )}
-        </div>
-        <div>
-          <button onClick={() => handleAspectButtonClick("roof")}>
-            Choose Roof Style
-          </button>
-          {roofOptionsVisible && (
+
+      {roofOptionsVisible && (
             <div>
               <div className="option__box">
                 <img
-                  src="/black.jpg"
+                  src= {panoromicglassroof}
                   alt="Panoramic Glass Roof"
                   onClick={() =>
                     handleRoofOptionClick(
@@ -448,7 +487,7 @@ const EditCar = () => {
                 />
 
                 <img
-                  src="/silver.jpg"
+                  src= {sunroof}
                   alt="Sunroof"
                   onClick={() =>
                     handleRoofOptionClick("Sunroof", getRoofPrice("Sunroof"))
@@ -458,20 +497,10 @@ const EditCar = () => {
               </div>
             </div>
           )}
-        </div>
-      </div>
 
 
 
-        <div className="summary__box">
-       
-        <h2 id="color">{car.name}</h2>
-        <p>Exterior Color: {color ? color : "Default"}</p>
-        <p>Wheel Design: {wheels ? wheels : "Default"}</p>
-        <p>Interior: {interior ? interior : "Default"}</p>
-        <p>Exterior Customization: {exterior ? exterior : "Default"}</p>
-        <p>Roof Style: {roof ? roof : "Default"}</p>
-        <p>Price: {price} </p>
+
       </div>
 
       <button onClick={updatecar}>Update Car</button>

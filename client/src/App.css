@@ -1,3 +1,6 @@
+*{
+    margin: 0;
+}
 .app {
     background: url('./assets/background.jpg');
     background-repeat: no-repeat;
@@ -12,23 +15,21 @@
 }
 
 .option__box {
-    position: fixed; /* Fixed position */
-    top: 40%; /* Adjust this value to control the vertical position */
-    left: 30%; /* Center horizontally */
-  /* Center horizontally */
+    
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #f0f0f034; /* Background color of the options box */
-    padding: 10px; /* Padding around the options box */
-    width: 600px; /* Fixed width for the options box */
-    height: 300px; /* Fixed height for the options box */
-    border: 1px solid #ddd; /* Border around the options box */
-    border-radius: 10px; /* Rounded corners */
-}
+    background-color: #f0f0f034;
+    padding: 10px;
+    width: 600px;
+    height: 300px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+  }
+  
 
 
-.option__image {
+.option__box img {
     width: 100px; /* Fixed width for each image */
     height: 100px; /* Fixed height for each image */
     cursor: pointer;
@@ -37,7 +38,7 @@
     transition: transform 0.2s; /* Smooth image scaling on hover */
 }
 
-.option__image:hover {
+.option__box > img:hover {
     transform: scale(1.1); /* Scale up the image on hover */
 }
 
@@ -47,6 +48,12 @@
     align-items: flex-start; /* Align items to the top */
 }
 
-.summary__box{
+
+
+.bottom__box{
     margin-top: 100px;
+    display: flex;
+    justify-content:flex-start;
+    gap: 10%;
+    padding-left: 2%;
 }
