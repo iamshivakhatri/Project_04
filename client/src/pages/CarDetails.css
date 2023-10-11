@@ -1,0 +1,49 @@
+/* Add these styles to your CSS file */
+
+#car-content{
+    padding-top: 10%;
+}
+  
+  .car-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+ 
+  
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .car-details {
+    background-color: #ffffffb1;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  .car-details h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .car-details p {
+    font-size: 18px;
+    color: #555;
+    margin: 10px 0;
+  }
+  
+ 
+
+  .buttons__container{
+    display: flex;
+  }
+  
+  /* Add more styles as needed */
+  

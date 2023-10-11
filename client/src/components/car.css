@@ -1,13 +1,26 @@
 .car {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin: 10px;
-    background-color: #f9f9f92e;
-    width: 1200px;
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-  }
+  padding: 10px;
+  margin: 10px;
+  background-color: #00000051;
+  width: 1200px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s, box-shadow 0.3s; /* Add smooth transitions */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Add a shadow for depth */
+  border: 1px solid #ccc;
+  transform-origin: center; /* Set the transform origin to the center */
+}
+
+.car:hover {
+  transform: scale(1.1); /* Scale the div slightly */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Add a shadow for depth */
+  transition: transform 0.3s, box-shadow 0.3s; /* Add smooth transitions */
+  
+
+}
+
+
 
   .car__container{
     flex: 1;

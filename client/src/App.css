@@ -15,16 +15,22 @@
 }
 
 .option__box {
-    
+    width: 600px;
+    height: 300px;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #f0f0f034;
+    
     padding: 10px;
-    width: 600px;
-    height: 300px;
+    
+    
+  }
+
+  .big__box{
+    background-color: #f0f0f034;
     border: 1px solid #ddd;
     border-radius: 10px;
+
   }
   
 
@@ -44,8 +50,8 @@
 
 .button__box {
     display: flex;
-    
     align-items: flex-start; /* Align items to the top */
+    
 }
 
 
@@ -56,4 +62,41 @@
     justify-content:flex-start;
     gap: 10%;
     padding-left: 2%;
+    height: 400px;
 }
+
+
+/* Add these styles to your CSS file */
+.summary__box {
+    background-color: #e9cecec4;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  .summary__box h2 {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .summary__box p {
+    font-size: 16px;
+    color: #531414;
+  }
+  
+  .summary__box input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    font-size: 14px;
+    color: white;
+    background-color: #333;
+  }
+  
+  /* Add more styles as needed */
+  

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import './CarDetails.css'
 import { Link } from 'react-router-dom'
+import "./CarDetails.css"
 
 const CarDetails = ({ data }) => {
   const { id } = useParams();
@@ -48,11 +49,13 @@ const CarDetails = ({ data }) => {
 
   return (
     <div className="CarDetails">
+      
       <main id="car-content" className="car-info">
         <div className="image-container">
           {/* You can display an image of the car here */}
           {/* <img id="image" src={car.image} alt={car.color} /> */}
         </div>
+
         <div className="car-details">
           <h2 id="color">{car.name}</h2>
            {console.log("This is the car",car.color)  }
@@ -64,9 +67,7 @@ const CarDetails = ({ data }) => {
           <p id="price">{'Price: $' + car.price}</p>
         </div>
 
-        
-      </main>
-
+        <div className="buttons__container">
       <Link to ={"/edit/" + id}>
        <button>
           Edit
@@ -76,6 +77,16 @@ const CarDetails = ({ data }) => {
        <button  onClick={deleteCar}>
           Delete
        </button>
+
+      </div>
+
+        
+  
+      </main>
+
+      
+
+      
 
 
     </div>

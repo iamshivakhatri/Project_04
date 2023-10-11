@@ -8,7 +8,7 @@ const customcar = [
             "interior": "Black Premium Interior",
             "exterior": "Custom Paint",
             "roof": "Panoramic Glass Roof",
-            "price": 15000
+            "price": 50000
         },
         {   "id": 2,
             "name": "Model 2",
@@ -17,7 +17,7 @@ const customcar = [
             "interior": "White Premium Interior",
             "exterior": "Body Kit",
             "roof": "Sunroof",
-            "price": 16000
+            "price": 60000
         },
         {
             "id": 3,
@@ -27,7 +27,7 @@ const customcar = [
             "interior": "Wood Decor",
             "exterior": "Custom Paint",
             "roof": "Panoramic Glass Roof",
-            "price": 15500
+            "price": 65000
         },
         {
             "id": 4,
@@ -37,7 +37,7 @@ const customcar = [
             "interior": "Black Premium Interior",
             "exterior": "Body Kit",
             "roof": "Sunroof",
-            "price": 16500
+            "price": 65000
         }
     
     

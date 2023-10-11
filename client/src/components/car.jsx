@@ -11,7 +11,7 @@ const car = ({car}) => {
 
   
   return (
-    <article className="car">
+    <div className="car">
 
       <div className="car__container">
         <h2>{car.name}</h2>
@@ -33,13 +33,11 @@ const car = ({car}) => {
         Details
       </button>
       </Link>
-      
 
-        
-
+    </div>
 
 
-</article>
+
   )
 }
 

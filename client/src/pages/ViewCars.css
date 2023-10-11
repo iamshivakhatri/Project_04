@@ -5,6 +5,44 @@
     justify-content: center;
     margin: 0 auto;
     width: 100%;
-    max-width: 1200px;
+    
     padding: 0 20px;
 }
+
+/* Add these styles to your CSS file */
+.summary__box {
+    background-color: #e9cecec4;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  .summary__box h2 {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .summary__box p {
+    font-size: 16px;
+    color: #531414;
+  }
+  
+  .summary__box input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    font-size: 14px;
+    color: white;
+    background-color: #333;
+  }
+
+  .search-container{
+    width: 200px;
+  }
+  
+  /* Add more styles as needed */

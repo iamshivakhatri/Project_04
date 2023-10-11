@@ -354,6 +354,7 @@ const CreateCar = () => {
 
       {colorOptionsVisible && (
             <>
+            <div className="big__box">  
               <div className="option__box">
             
                 <img
@@ -387,12 +388,19 @@ const CreateCar = () => {
                   style={{ cursor: "pointer" }}
                 />
               </div>
+
+              <button onClick={(e) => setColorOptionsVisible(false)} >
+                Done
+              </button>
+              </div>
             </>
           )}
 
       {wheelOptionsVisible && (
             <>
-              <div className="option__box">
+            <div className="big__box">
+         
+                <div className="option__box"> 
                 <img
                   src= {aerowheels}
                   alt="Aero Wheels"
@@ -428,12 +436,24 @@ const CreateCar = () => {
                   }
                   style={{ cursor: "pointer" }}
                 />
-              </div>
+                </div>
+                 <button onClick = {(e)=> setWheelOptionsVisible(false)}> 
+                  Done
+                </button>
+
+            </div>
+            
+
+               
+              
             </>
           )}
 
 {interiorOptionsVisible && (
-            <div className="option__box">
+    
+    <div className="big__box">  
+     
+     <div className="option__box"> 
               <img
                 src= {blackpremiuminterior}
                 alt="Black Premium Interior"
@@ -469,12 +489,19 @@ const CreateCar = () => {
                 }
                 style={{ cursor: "pointer" }}
               />
-            </div>
+               </div>
+               <button onClick={(e) => setInteriorOptionsVisible(false)}>
+                Done
+               </button>
+           </div>
+       
+           
           )}
 
 
 {exteriorOptionsVisible && (
-            <div className="option__box">
+            <div className="big__box">
+              <div className="option__box">
               <img
                 src= {custompaint}
                 alt="Custom Paint"
@@ -498,11 +525,16 @@ const CreateCar = () => {
                 }
                 style={{ cursor: "pointer" }}
               />
+              </div>
+              <button onClick={(e) => setExteriorOptionsVisible(false)}>
+                Done
+              </button>
+
             </div>
           )}
 
 {roofOptionsVisible && (
-            <div>
+            <div className="big__box">
               <div className="option__box">
                 <img
                   src= {panoromicglassroof}
@@ -525,6 +557,9 @@ const CreateCar = () => {
                   style={{ cursor: "pointer" }}
                 />
               </div>
+              <button onClick={(e) => setRoofOptionsVisible(false)}>
+                Done
+              </button>
             </div>
           )}
 
@@ -533,9 +568,14 @@ const CreateCar = () => {
 
       
       
-      
+
       <button onClick={createcar}>Create Car</button>
+
+
+      
     </div>
+
+
   );
 };
 

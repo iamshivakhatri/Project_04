@@ -1,55 +1,61 @@
-import {useState, useEffect} from 'react'
-import Car from "../components/car"
-import "./ViewCars.css"
-
-
-import '../App.css'
+import React, { useState, useEffect } from 'react';
+import Car from '../components/car';
+import './ViewCars.css';
 
 const ViewCars = () => {
-    const [cars, setCars] = useState([]);
+  const [cars, setCars] = useState([]);
+  const [searchInput, setSearchInput] = useState('');
+  const [filteredCars, setFilteredCars] = useState([]);
 
-    useEffect(() => {
-        const fetchCars = async () => {
-            try{
-                const response = await fetch('http://localhost:3000/viewcars');
-                const data = await response.json();
-                console.log("This is data", data);
-                console.log("I am here")
-                setCars(data);
+  useEffect(() => {
+    const fetchCars = async () => {
+      try {
+        const response = await fetch('http://localhost:3000/viewcars');
+        const data = await response.json();
+        setCars(data);
+        setFilteredCars(data); // Initially, show all cars
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchCars();
+  }, []);
 
-            }catch(error){
-                console.log(error)
-            }
+  const handleSearch = () => {
+    // Filter the cars based on the search input
+    const filtered = cars.filter((car) =>
+      car.name.toLowerCase().includes(searchInput.toLowerCase())
+    );
+    setFilteredCars(filtered);
+  };
 
-        }
-        fetchCars();
-        
-    }, []);
-    
-    return (
-        <div>
-            <main className='car__container'>
-               {
-                 cars && cars.length > 0 ? (cars.map((car) => (
-                 
-                    <Car key={car.id} car = {car} />
-            
-                 )))
-                 
-                 : (
-                 <h2>
-                    <i className="fa-regular fa-calendar-xmark fa-shake"></i> 
-                 {'No Customized Cars Yet'}
-                 </h2>
-                  )
+  return (
+    <div>
+      <div className="search-container">
+        <input
+          type="text"
+          placeholder="Search for cars..."
+          value={searchInput}
+          onChange={(e) => setSearchInput(e.target.value)}
+        />
+        <button onClick={handleSearch}>Search</button>
+      </div>
 
-               }
+      
+      <main className="car__container">
+        {filteredCars.length > 0 ? (
+          filteredCars.map((car) => (
+            <Car key={car.id} car={car} />
+          ))
+        ) : (
+          <h2>
+            <i className="fa-regular fa-calendar-xmark fa-shake"></i>
+            {'No Customized Cars Found'}
+          </h2>
+        )}
+      </main>
+    </div>
+  );
+};
 
-
-            </main>
-            
-        </div>
-    )
-}
-
-export default ViewCars
+export default ViewCars;

@@ -37,6 +37,7 @@ const EditCar = () => {
             const data = await response.json();
             setCar(data);
             setColor(data.color);
+        setCarName(data.name);
         setWheels(data.wheels);
         setInterior(data.interior);
         setExterior(data.exterior);
@@ -57,6 +58,7 @@ const EditCar = () => {
       const [exterior, setExterior] = useState();
       const [roof, setRoof] = useState();
       const [price, setPrice] = useState();
+      const [carName, setCarName] = useState('');
     
       const [colorOptionsVisible, setColorOptionsVisible] = useState(false);
       const [wheelOptionsVisible, setWheelOptionsVisible] = useState(false);
@@ -249,12 +251,13 @@ const EditCar = () => {
         event.preventDefault()
     
         const car = {
-            color: color,
-            wheels: wheels,
-            interior: interior,
-            exterior: exterior,
-            roof: roof,
-            price: price,
+          name: carName? carName: "Default",
+          color: color? color : "Default",
+          wheels:  wheels? wheels : "Default",
+          interior: interior? interior : "Default",
+          exterior: exterior? exterior : "Default",
+          roof: roof ? roof : "Default",
+          price: price? price : "Default",
         }
         console.log("This is the update car",car);
         const options = {
@@ -315,7 +318,7 @@ const EditCar = () => {
 
       <div className="bottom__box"> 
         <div className="summary__box">
-        <h2>Summary of Choices</h2>
+        <h2>{carName}</h2>
         <p>Exterior Color: {color ? color : "Default"}</p>
         <p>Wheel Design: {wheels ? wheels : "Default"}</p>
         <p>Interior: {interior ? interior : "Default"}</p>
@@ -325,6 +328,7 @@ const EditCar = () => {
       </div>
       {colorOptionsVisible && (
             <>
+            <div className="big__box">
               <div className="option__box">
                 <img
                   src= {red}
@@ -357,11 +361,13 @@ const EditCar = () => {
                   style={{ cursor: "pointer" }}
                 />
               </div>
+              </div>
             </>
           )}
 
       {wheelOptionsVisible && (
             <>
+            <div className="big__box"> 
               <div className="option__box">
                 <img
                   src= {aerowheels}
@@ -399,10 +405,16 @@ const EditCar = () => {
                   style={{ cursor: "pointer" }}
                 />
               </div>
+               <button onClick = {(e)=> setWheelOptionsVisible(false)}> 
+                  Done
+                </button>
+              </div>
             </>
           )}
 
       {interiorOptionsVisible && (
+
+        <div className="big__box">  
             <div className="option__box">
               <img
                 src= {blackpremiuminterior}
@@ -440,10 +452,15 @@ const EditCar = () => {
                 style={{ cursor: "pointer" }}
               />
             </div>
+            <button onClick={(e) => setInteriorOptionsVisible(false)}>
+                Done
+               </button>
+            </div>
           )}
 
 
       {exteriorOptionsVisible && (
+        <div className="big__box"> 
             <div className="option__box">
               <img
                 src= {custompaint}
@@ -469,10 +486,16 @@ const EditCar = () => {
                 style={{ cursor: "pointer" }}
               />
             </div>
+            <button onClick={(e) => setExteriorOptionsVisible(false)}>
+                Done
+              </button>
+            </div>
           )}
 
       {roofOptionsVisible && (
-            <div>
+
+            <div className='big__box'>
+
               <div className="option__box">
                 <img
                   src= {panoromicglassroof}
@@ -495,6 +518,9 @@ const EditCar = () => {
                   style={{ cursor: "pointer" }}
                 />
               </div>
+              <button onClick={(e) => setRoofOptionsVisible(false)}>
+                Done
+              </button>
             </div>
           )}
 

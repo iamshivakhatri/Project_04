@@ -4,7 +4,7 @@ const getCars = async (req, res) => {
     try {
         const results = await pool.query('SELECT * FROM customcar ORDER BY id ASC')
         res.status(200).json(results.rows)
-        console.log("I am here", results.rows)
+       
         
     } catch (error) {
         res.status(500).json(error)    
@@ -41,6 +41,7 @@ const createCar = async (req, res) => {
 const updateCar = async (req, res) => {
     try {
         const {id} = req.params
+         console.log("i am inside the update")
         const {name, color, wheels, interior, exterior, roof, price} = req.body
         const updateQuery = `UPDATE customcar SET name = '${name}', color = '${color}', wheels = '${wheels}', interior = '${interior}', exterior = '${exterior}', roof = '${roof}', price = '${price}' WHERE id = ${id} RETURNING *`
         const results = await pool.query(updateQuery)
@@ -53,6 +54,7 @@ const updateCar = async (req, res) => {
 
 const deleteCar = async (req, res) => {
     try {
+        console.log("I am running inside delete")
         const {id} = req.params
         const deleteQuery = `DELETE FROM customcar WHERE id = ${id}`
         const results = await pool.query(deleteQuery)
