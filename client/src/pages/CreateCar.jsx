@@ -17,7 +17,7 @@ import white from "../assets/white.png"
 import black from "../assets/black.jpeg"
 import silver from "../assets/silver.png"
 
-
+// need to create some check logics
 
 const CreateCar = () => {
   const [color, setColor] = useState("");
