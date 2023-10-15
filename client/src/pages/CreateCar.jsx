@@ -112,6 +112,11 @@ const CreateCar = () => {
   // Wheels
   const handleWheelOptionClick = (optionName, optionPrice) => {
     let temp;
+    // Check if the selected color is "Silver"
+  if (color === "Silver" && optionName === "Sport Wheels") {
+    alert("You can't select 'Sport Wheels' when the color is 'Silver'");
+    return; // Prevent further processing
+  }
     if (optionName !== wheels) {
       // Cancel the price of the previous wheels
       console.log(
@@ -193,6 +198,11 @@ const CreateCar = () => {
   /***This is for roof  */
 
   const handleRoofOptionClick = (optionName, optionPrice) => {
+    if (exterior === "Custom Paint" && optionName === "Panoramic Glass Roof") {
+      alert("You cannot select 'Custom Paint' and 'Panoramic Glass Roof' together.");
+      return; // Prevent further processing
+    }
+  
     let temp;
     if (optionName !== roof) {
       // Cancel the price of the previous roof
@@ -206,14 +216,14 @@ const CreateCar = () => {
       setRoof(optionName);
       setPrice(temp + optionPrice); // Increment price for the selected roof
     }
-    
   };
+  
 
   const getRoofPrice = (roof) => {
     // Define the price of each type of roof
     const roofPrices = {
       "Panoramic Glass Roof": 1000,
-      Sunroof: 800,
+      "Sunroof": 800,
     };
     return roofPrices[roof] || 0; // Return the price or 0 if not found
   };

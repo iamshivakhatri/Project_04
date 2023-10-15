@@ -31,13 +31,13 @@ The following **additional** features are implemented:
 
 - [✅] List anything else that you added to improve the site's functionality!
 
-Here I have added the search button which willl allow users to select the different cars that user has customized.
+✅ Here I have added the search button which willl allow users to select the different cars that user has customized.
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented required features:
 
-<img src='./project04.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='./p4.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with LICEcap  
